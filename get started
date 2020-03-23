@@ -1,0 +1,8 @@
+1) запусти командную строку
+2) d: 
+3) cd DjangoProjects/BlogProject/Scripts
+4) activate
+5) cd..
+6) cd src
+7) python manage.py runserver
+8) Проверить, запустился ли сервер
