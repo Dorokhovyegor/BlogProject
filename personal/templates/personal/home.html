@@ -7,9 +7,11 @@
 	<h1>This is a body</h1>
 	 <p>Какой-то стаф</p>
 
-	 {% for question in questions %}
-	  	{% include 'personal/snippets/body_snippet.html' with value=question %}
-	 {% endfor %}	
+	 {% for account in accounts %}
+
+	 <p>{{account}}</p>
+
+	 {% endfor %}
 </div>
 
 {% endblock content %}

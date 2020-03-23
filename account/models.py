@@ -48,8 +48,8 @@ class Account(AbstractBaseUser):
 
 	objects = MyAccountManager()
 
-	def __str__(self):
-		return self.email
+	def __str__(self): 
+		return self.email + ", " + self.username
 
 	def has_perms(self, perms, obj=None):
 		return self.is_admin
