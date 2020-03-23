@@ -3,15 +3,11 @@
 {% block content %}
 
 
-<div style="border: 2px solid #000">
-	<h1>This is a body</h1>
-	 <p>Какой-то стаф</p>
-
+	<h1>Registered users: </h1>
 	 {% for account in accounts %}
 
 	 <p>{{account}}</p>
 
 	 {% endfor %}
-</div>
 
 {% endblock content %}
