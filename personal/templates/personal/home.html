@@ -7,8 +7,8 @@
 	<h1>This is a body</h1>
 	 <p>Какой-то стаф</p>
 
-	 {% for list_item in list %}
-	  	{% include 'personal/snippets/body_snippet.html' with value=list_item %}
+	 {% for question in questions %}
+	  	{% include 'personal/snippets/body_snippet.html' with value=question %}
 	 {% endfor %}
 
 	
