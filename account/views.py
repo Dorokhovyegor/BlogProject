@@ -29,9 +29,7 @@ def logout_view(request):
 
 
 def login_view(request):
-
 	 context = {}
-
 	 user = request.user
 	 if user.is_authenticated:
 	 	return redirect("home")
@@ -42,10 +40,9 @@ def login_view(request):
 	 		email = request.POST['email']
 	 		password = request.POST['password']
 	 		user = authenticate(email=email, password=password)
-	 		if user:
+	 		if user is not None:
 	 			login(request, user)
 	 			return redirect("home")
-
 	 else:
 	 	form = AccountAuthenticationForm()
 
@@ -55,7 +52,6 @@ def login_view(request):
 
 
 def account_view(request):
-
 	if not request.user.is_authenticated:
 		return redirect("login")
 
@@ -64,7 +60,12 @@ def account_view(request):
 	if request.POST:
 		form = AccountUpdateForm(request.POST, instance=request.user)
 		if form.is_valid():
+			form.initial = {
+				"email": request.POST["email"],
+				"username": request.POST["username"]
+			}
 			form.save()
+			context["success_message"] = "Updated"
 	else:
 		form = AccountUpdateForm(
 				initial= {
